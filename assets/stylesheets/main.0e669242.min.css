@@ -20,10 +20,6 @@ html {
 body {
     margin: 0;
 }
-
-html {
-    overflow-y: none !important;
-}
 a,
 button,
 input,
@@ -785,7 +781,11 @@ body {
 .md-main__inner {
     /* display: flex; */
     height: 100%;
-    margin-top: -0.5rem;
+    margin: 6%;
+    margin-top: 2.5rem;
+    box-shadow: 2px 2px 25px 2px #e2e2e2;
+    border-radius: 45px;
+    padding-bottom: 48%;
 }
 .md-ellipsis {
     overflow: hidden;
@@ -972,6 +972,7 @@ input:checked + .md-consent__settings {
     flex-grow: 1;
     min-width: 0;
     scroll-snap-align: start; /* Enable scroll snapping */
+    margin-top: -2%;
 }
 
 .md-content-flashcard{
@@ -1336,7 +1337,18 @@ html .md-footer-meta.md-typeset a:hover {
 }
 
 .header-right{
-    width: 100%;
+    /* width: 100%;
+    border-radius: 50px;
+    background-color: var(--md-primary-fg-color);
+    box-shadow: 2px 2px 2px 2px lightgray;
+    color: var(--md-primary-bg-color);
+    display: block;
+    height: 50px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin: 4% auto; */
+    width: 62%;
     border-radius: 50px;
     /* height: 40px; */
     background-color: var(--md-primary-fg-color);
@@ -1348,7 +1360,8 @@ html .md-footer-meta.md-typeset a:hover {
     justify-content: center;
     display: flex;
     align-items: center;
-    margin: 4% auto;
+    margin: 5% auto;
+    font-size: 28px;
     /* left: 0;
     position: relative;
     right: 0;
@@ -1356,11 +1369,15 @@ html .md-footer-meta.md-typeset a:hover {
     margin: auto; */
 }
 
+html {
+    overflow-y: none !important;
+}
+
 .heading-container{
     display: flex;
     flex-direction: row;
     /* margin: 1% auto; */
-    padding: 0 3%;
+    padding: 0 1%;
 }
 
 .md-header[hidden] {
@@ -2828,23 +2845,33 @@ html .md-footer-meta.md-typeset a:hover {
     /* height: 512px; */
 }
 .img-container {
-    max-width: 20%;
+    /* max-width: 20%;
     height: 125px;
     justify-content: center;
     display: flex;
     align-items: center;
-    padding: 0 1%;
+    padding: 0 1%; */
+    max-width: 25%;
+    height: 125px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: 0%;
+    padding-top: 4%;
+    padding-left: 4%;
 }
 
 .person-image-container{
     max-width: 30%;
+    margin-right: -6%;
+    margin-top: 2%;
 }
 
 .speech-box{
     background-color: #bedaf1;
     margin: 0 2%;
     border-radius: 25px;
-    font-size: 30px;
+    font-size: 25px;
     /* width: 90%; */
 }
 
