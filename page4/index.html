@@ -133,12 +133,49 @@
             <body>
             <div id="page1" class="md-content-flashcard" data-md-component="content">
               <article class="md-content__inner md-typeset">
-                <a id="prevPage" href="/page3/">Previous</a>
-                  
+                <a id="prevPage" href="/FlashCards_Demo/page3/">Previous</a>
+                <a id="nextPage" style="float: right;" href="/FlashCards_Demo/page5/">Next</a>
+                <div style="display: flex; flex-direction: row; justify-content: space-between; margin: 2% 10%;">
+                  <div>
+                  <span style="font-weight: bold; font-size: 20px;">Contrast</span>
+                  <select id="dropdown1" onchange="updateInput()">
+                    <option value="maximal">maximal</option>
+                    <!-- <option value="minimal">minimal</option> -->
+                  </select>
+                  </div>
+                  <div>
+                  <span style="font-weight: bold; font-size: 20px;">Location</span>
+                  <select id="dropdown2" onchange="updateInput()">
+                      <option value="initial">initial</option>
+                      <!-- <option value="medial">medial</option> -->
+                      <option value="final">final</option>
+                  </select>
+                </div>
+                <div>
+                  <span style="font-weight: bold; font-size: 20px;">Sound</span>
+                  <select id="dropdown3" onchange="updateInput()">
+                      <option value="/r/">/r/</option>
+                      <option value="/l/">/l/</option>
+                      <option value="/s/">/s/</option>
+                      <!-- <option value="/f/">/f/</option>
+                      <option value="/p/">/p/</option>
+                      <option value="/t/">/t/</option> -->
+                  </select>
+                </div>
+                </div>
                 <div class="gradio-box">
-                  <input id= "gradiotext" type="text" class="text-input" placeholder="Generate flashcards about toys relevant for 4 year old for sound \t">
+                  <input id= "gradiotext" type="text" class="text-input" placeholder="" readonly>
                   <button id="getData" class="create-button">Create</button>
                 </div>
+                <script>
+                  function updateInput() {
+                      const selected1 = document.getElementById('dropdown1').value;
+                      const selected2 = document.getElementById('dropdown2').value;
+                      const selected3 = document.getElementById('dropdown3').value;
+                      const inputField = document.getElementById('gradiotext');
+                      inputField.value = `Generate a pair of words with ${selected1}ly contrasting phonemes that differ at the ${selected2} sound and one of the sounds is ${selected3}`;
+                  }
+              </script>
                 <script src="../assets/javascripts/script.js"></script>
                 <!-- <input id= "gradiotext" type="text" class="styledInput" placeholder="Enter your data">
                   <div><button id="getData" class="styledButton">Get Data</button></div>
@@ -153,17 +190,59 @@
                 <div id = "img-template" class="gradio-box-main">
                   <img src="" style="display: none;" id = "first-card" class="gradio-box-main">
                 </div>
-                <div>
+                <!-- <div>
                   <h2 style="font-weight: bold; text-align: center;">Words</h2>
                   <h2 style="font-weight: bold; text-align: center;">Phonetic Transcription</h2>
                   <h2 style="font-weight: bold; text-align: center;">Explanation</h2>
-                </div>
+                </div> -->
+                <div>
+                <table id="card-details-table">
+                  <tr>
+                      <th id="card-1-name">Column 1</th>
+                      <th style="background-color: lightgrey; font-weight: bold; text-align: center;" >Word</th>
+                      <th id="card-2-name" style="text-align: right;">Column 2</th>
+                  </tr>
+                  <tr>
+                    <td style="text-align: left;" id="card-1-phonetic">Value 1</td>
+                    <td style="background-color: lightgrey; font-weight: bold; text-align: center;">Ipa</td>
+                    <td style="text-align: right;" id="card-2-phonetic" style="text-align: right;">Value 2</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td style="background-color: lightgrey; font-weight: bold; text-align: center;">Sound Characteristics</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: left;">/f/</td>
+                    <td style="background-color: lightgrey; font-weight: bold; text-align: center;">Phoneme</td>
+                    <td style="text-align: right;">/p/</td>
+                  </tr>
+                  <tr id="card-place-header">
+                      <td id="card-1-place">Value 3</td>
+                      <td style="background-color: lightgrey; font-weight: bold; text-align: center;">Place</td>
+                      <td id="card-2-place" style="text-align: right;">Value 4</td>
+                  </tr>
+                  <tr id="card-voicing-header">
+                      
+                      <td id="card-1-voice">Value 5</td>
+                      <td style="background-color: lightgrey; font-weight: bold; text-align: center;">Voicing</td>
+                      <td id="card-2-voice" style="text-align: right;">Value 6</td>
+                  </tr>
+                  <tr id="card-manner-header">
+                      <td id="card-1-manner">Value 5</td>
+                      <td style="background-color: lightgrey; font-weight: bold; text-align: center;">Manner</td>
+                      <td id="card-2-manner" style="text-align: right;">Value 6</td>
+                </tr>
+              </table>
+            </div>
                 <div id = "img-template" class="gradio-box-main">
                   <img src="" style="display: none;" id  = "second-card" class="gradio-box-main">
                 </div>
               </div>
+              <div class="explanation-div" = id="explanation-div">
+                <h1 id="explanation-text"></h1>
+              </div>
                   </div>
-                  
               </div>
 </article>
             </div>

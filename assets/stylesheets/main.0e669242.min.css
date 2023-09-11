@@ -49,8 +49,38 @@ img {
     border-style: none;
 }
 table {
+    display: none;
     border-collapse: initial;
     border-spacing: 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr {
+    background-color: #ffffff; /* Set the background color for all rows */
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f2f2f2;
 }
 td,
 th {
@@ -500,7 +530,7 @@ pre {
     background-color: var(--md-default-bg-color);
     border: 0.05rem solid var(--md-typeset-table-color);
     border-radius: 0.1rem;
-    display: inline-block;
+    /* display: inline-block; */
     font-size: 0.64rem;
     max-width: 100%;
     overflow: auto;
@@ -533,12 +563,12 @@ pre {
 .md-typeset table:not([class]) th {
     font-weight: 700;
     min-width: 5rem;
-    padding: 0.9375em 1.25em;
+    padding: 1.9375em 1.25em;
     vertical-align: top;
 }
 .md-typeset table:not([class]) td {
     border-top: 0.05rem solid var(--md-typeset-table-color);
-    padding: 0.9375em 1.25em;
+    padding: 1.9375em 1.25em;
     vertical-align: top;
 }
 .md-typeset table:not([class]) tbody tr {
@@ -733,9 +763,11 @@ body {
     /* max-width: 61rem; */
 }
 .md-container {
-    display: flex;
+    height: 750px;
+    overflow: auto;
+    /* display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    flex-grow: 1; */
 }
 @media print {
     .md-container {
@@ -743,6 +775,7 @@ body {
     }
 }
 .md-main {
+    height: 600px;
     flex-grow: 1;
 }
 .md-main__inner {
@@ -924,7 +957,7 @@ input:checked + .md-consent__settings {
     cursor: pointer;
 }
 .md-content {
-    box-shadow: 5px 5px 10px 10px lightgray;
+    /* box-shadow: 5px 5px 10px 10px lightgray; */
     border-radius: 2px 2px 5px rgba(0, 0, 255, 0.2);
     background-color: white;
     border-radius: 10px;
@@ -938,13 +971,13 @@ input:checked + .md-consent__settings {
 }
 
 .md-content-flashcard{
-    box-shadow: 5px 5px 10px 10px lightgray;
+    /* box-shadow: 5px 5px 10px 10px lightgray; */
     border-radius: 2px 2px 5px rgba(0, 0, 255, 0.2);
     background-color: white;
     border-radius: 10px;
     padding: 20px;
     width: auto;
-    height: 750px;
+    /* height: 750px; */
     margin: 0 20px;
     flex-grow: 1;
     min-width: 0;
@@ -1303,7 +1336,7 @@ html .md-footer-meta.md-typeset a:hover {
     border-radius: 50px;
     /* height: 40px; */
     background-color: var(--md-primary-fg-color);
-    box-shadow: 0 0 0.2rem #0000, 0 0.2rem 0.4rem #0000;
+    box-shadow: 2px 2px 2px 2px lightgray;
     color: var(--md-primary-bg-color);
     display: block;
     /* max-width: 30%; */
@@ -1322,7 +1355,7 @@ html .md-footer-meta.md-typeset a:hover {
 .heading-container{
     display: flex;
     flex-direction: row;
-    margin: 1% auto auto auto;
+    /* margin: 1% auto; */
     padding: 0 3%;
 }
 
@@ -2824,11 +2857,11 @@ html .md-footer-meta.md-typeset a:hover {
 
 .gradio-box-main{
     background-color: #ededed;
-    margin: 0 2%;
+    /* margin: 0 2%; */
     border-radius: 25px;
     font-size: 30px;
     /* width: 90%; */
-    width: 30%;
+    /* width: 30%; */
     height: 300px;
 }
 
@@ -2846,8 +2879,30 @@ html .md-footer-meta.md-typeset a:hover {
     justify-content: space-between;
     margin: 1% 0;
     /* width: 300px; */
-    height: 200px;
-    /* padding: 2%; */
+    /* height: 200px; */
+    padding: 2%;
+}
+
+.explanation-div {
+    font-family: none;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 50px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.explanation-div h1 {
+    font-weight: 900;
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
 }
 
 .gradio-container img {
@@ -2861,9 +2916,46 @@ html .md-footer-meta.md-typeset a:hover {
     padding: 10px;
     border: none;
     outline: none;
-    font-size: 20px;
+    font-size: 30px;
     color: #333;
     background-color: transparent;
+}
+
+.explanation-div{
+    display: none;
+    box-shadow: 2px 2px 2px 2px lightblue;
+    background-color: lightblue;
+    font-weight: 900;
+    border-radius: 1%;
+    font-style: italic;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0 1%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f2f2f2;
 }
 
 .nav-button-container {
@@ -5464,4 +5556,36 @@ button:focus {
     width: 50px; /* Adjust the size of your logo */
     height: auto;
     z-index: 1000; /* Ensure it's on top of other content */
+}
+
+select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+select:focus {
+    outline: none;
+    border-color: #007BFF;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #007BFF;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
 }
