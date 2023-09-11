@@ -20,6 +20,10 @@ html {
 body {
     margin: 0;
 }
+
+html {
+    overflow-y: none !important;
+}
 a,
 button,
 input,
