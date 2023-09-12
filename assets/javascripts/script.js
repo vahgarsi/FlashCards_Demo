@@ -1,50 +1,26 @@
-// document.getElementById('getData').addEventListener('click', getData);
-// if(document.getElementById('toggle-button').prop("checked") == true){
-//     console.log('toggle is on')
-//         document.getElementById('getData').addEventListener('click', getCannedresponseNew);
-//     }
-// else if(document.getElementById('toggle-button').prop("checked") == false){
-//     console.log('toggle is off')
-//     document.getElementById('getData').addEventListener('click', getData);
-// }
 
-// $('input[type="checkbox"]').click(function(){
-//     if(this.prop("checked") == true){
-//         console.log('toggle is on')
-//         document.getElementById('getData').addEventListener('click', getCannedresponseNew);
-//     }
-//     else if(this.prop("checked") == false){
-//         console.log('toggle is off')
-//         document.getElementById('getData').addEventListener('click', getData);
-//     }
+
+
+// document.getElementById('getData').addEventListener('click', getCannedresponseNew);
+
+// document.querySelectorAll('input[type="checkbox"]').forEach(function(checkbox) {
+//     checkbox.addEventListener('change', function() {
+        
+
+//         if (this.checked) {
+//             console.log('toggled on')
+//         } else {
+//             console.log('toggled off')
+//         }
+//     });
 // });
 
-
-// function checkToggleButton() {
-//     var toggleButton = document.getElementById('toggle-button');
-//     var isChecked = toggleButton.checked;
-
-//     if (isChecked) {
-//         console.log('Button is toggled on');
-//     } else {
-//         console.log('Button is toggled off');
-//     }
-// }
-
-// var toggleButton = document.getElementById('toggle-button');
-// var isChecked = toggleButton.checked;
-// console.log('is checked is '+isChecked)
-// if (isChecked) {
-//     console.log('Button is toggled on');
-// } else {
-//     console.log('Button is toggled off');
-// }
-
-// var toggleButton = document.getElementById('toggle-button');
-// toggleButton.addEventListener('change', checkToggleButton);
+document.getElementById("toggle-button").addEventListener("change", function() {
+    // Your code here
+    console.log('clicked')
+  });
 
 
-document.getElementById('getData').addEventListener('click', getCannedresponseNew);
 
 function dummyImage(){
     const firstcard = document.getElementById('first-card');
@@ -925,3 +901,4 @@ function getCannedresponseNew() {
 
 
 }
+
