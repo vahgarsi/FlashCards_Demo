@@ -20,31 +20,31 @@
 // });
 
 
-function checkToggleButton() {
-    var toggleButton = document.getElementById('toggle-button');
-    var isChecked = toggleButton.checked;
+// function checkToggleButton() {
+//     var toggleButton = document.getElementById('toggle-button');
+//     var isChecked = toggleButton.checked;
 
-    if (isChecked) {
-        console.log('Button is toggled on');
-    } else {
-        console.log('Button is toggled off');
-    }
-}
+//     if (isChecked) {
+//         console.log('Button is toggled on');
+//     } else {
+//         console.log('Button is toggled off');
+//     }
+// }
 
-var toggleButton = document.getElementById('toggle-button');
-var isChecked = toggleButton.checked;
-console.log('is checked is '+isChecked)
-if (isChecked) {
-    console.log('Button is toggled on');
-} else {
-    console.log('Button is toggled off');
-}
+// var toggleButton = document.getElementById('toggle-button');
+// var isChecked = toggleButton.checked;
+// console.log('is checked is '+isChecked)
+// if (isChecked) {
+//     console.log('Button is toggled on');
+// } else {
+//     console.log('Button is toggled off');
+// }
 
-var toggleButton = document.getElementById('toggle-button');
-toggleButton.addEventListener('change', checkToggleButton);
+// var toggleButton = document.getElementById('toggle-button');
+// toggleButton.addEventListener('change', checkToggleButton);
 
 
-document.getElementById('getData').addEventListener('click', getData);
+document.getElementById('getData').addEventListener('click', getCannedresponseNew);
 
 function dummyImage(){
     const firstcard = document.getElementById('first-card');
