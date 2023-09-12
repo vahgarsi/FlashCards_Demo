@@ -188,19 +188,21 @@
                 
                 <div class="gradio-container">
                 <div id = "img-template" class="gradio-box-main">
-                  <img src="" style="display: none;" id = "first-card" class="gradio-box-main">
+                  <img src="" style="display: none; height: 300px;" id = "first-card" class="gradio-box-main">
                 </div>
+                
                 <!-- <div>
-                  <h2 style="font-weight: bold; text-align: center;">Words</h2>
-                  <h2 style="font-weight: bold; text-align: center;">Phonetic Transcription</h2>
-                  <h2 style="font-weight: bold; text-align: center;">Explanation</h2>
-                </div> -->
-                <div>
-                <table id="card-details-table">
+                <table style="height: 300px; border: none;" id="card-details-table">
                   <tr>
-                      <th id="card-1-name">Column 1</th>
-                      <th style="background-color: lightgrey; font-weight: bold; text-align: center;" >Word</th>
-                      <th id="card-2-name" style="text-align: right;">Column 2</th>
+                      <th style="background-color: #2094f3; font-weight: bold; text-align: center; border-radius: 50px;" colspan="3" >Words</th>
+                  </tr>
+                  <tr>
+                    <th colspan="2">Name</th>
+                    <th>Face</th>
+                  </tr>
+                  <tr style="height: 50%;">
+                    <th colspan="2">reis</th>
+                    <th>feis</th>
                   </tr>
                   <tr>
                     <td style="text-align: left;" id="card-1-phonetic">Value 1</td>
@@ -234,9 +236,74 @@
                       <td id="card-2-manner" style="text-align: right;">Value 6</td>
                 </tr>
               </table>
+              
+            </div> -->
+            <div class="table-heading">
+              <div class="heading-1">Words</div>
+              <div class="heading-2">
+                <div id="placeholder-card-1-name">
+                  Race
+                </div>
+                <div id="placeholder-card-2-name">
+                  Face
+                </div>
+              </div>
+              <div class="heading-3">
+                <div id="placeholder-card-1-ipa">
+                  reis
+                </div>
+                <div id="placeholder-card-2-ipa">
+                  feis
+                </div>
+              </div>
+              <div class="heading-4">Sound Characteristics</div>
+              <div class="heading-5">
+                <div style="width: 30%; text-align: left;">
+                  /f/
+                </div>
+                <div style="font-weight: bold; width: 30%; text-align: center;">
+                  Phoneme
+                </div>
+                <div style="width: 30%; text-align: right;">
+                  /p/
+                </div>
+              </div>
+              <div id="place-header" class="heading-6">
+                <div style="width: 30%; text-align: left;" id="placeholder-card-1-place">
+                  alveolar
+                </div>
+                <div style="font-weight: bold; width: 30%; text-align: center;">
+                  Place
+                </div>
+                <div style="width: 30%; text-align: right;" id="placeholder-card-2-place">
+                  labiodental
+                </div>
+              </div>
+              <div id="voice-header"  class="heading-7">
+                <div style="width: 30%; text-align: left;" id="placeholder-card-1-voicing">
+                  voiced
+                </div>
+                <div style="font-weight: bold; width: 30%; text-align: center;">
+                  Voicing
+                </div>
+                <div style="width: 30%; text-align: right;" id="placeholder-card-2-voicing">
+                  voiceless
+                </div>
+              </div>
+              <div id="manner-header"  class="heading-8">
+                <div style="width: 30%; text-align: left;" id="placeholder-card-1-manner">
+                  approximate
+                </div>
+                <div style="font-weight: bold; width: 30%; text-align: center;">
+                  Manner
+                </div>
+                <div style="width: 30%; text-align: right;" id="placeholder-card-2-manner">
+                  approximate
+                </div>
+              </div>
             </div>
                 <div id = "img-template" class="gradio-box-main">
-                  <img src="" style="display: none;" id  = "second-card" class="gradio-box-main">
+                  <img src="" style="display: none; height: 300px;" id  = "second-card" class="gradio-box-main">
                 </div>
               </div>
               <div class="explanation-div" = id="explanation-div">
