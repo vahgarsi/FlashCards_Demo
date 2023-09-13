@@ -5864,3 +5864,45 @@ input:focus {
     top: 10px;
     right: 10px;
 }
+
+.left-arrow {
+    position: absolute;
+    left: 0;
+    /* height: 50%; */
+    margin-top: 23%;
+    /* margin: 0 auto; */
+    margin-left: 2%;
+    width: 35px;
+    height: 57px;
+    text-align: center;
+    color: #2094f3;
+    line-height: 57px;
+    cursor: pointer;
+    font-size: 75px;
+}
+
+.right-arrow {
+    position: absolute;
+    right: 0;
+    height: 50%;
+    margin-top: -25%;
+    margin-right: 2%;
+    width: 35px;
+    height: 57px;
+    text-align: center;
+    color: #2094f3;
+    line-height: 57px;
+    cursor: pointer;
+    font-size: 75px;
+}
+
+.lefty,.righty {
+    width: 35px;
+    height: 57px;
+    text-align: center;
+    color: white;
+    line-height: 57px;
+    cursor: pointer;
+    font-size: 10px;
+
+}
