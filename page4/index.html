@@ -90,12 +90,33 @@
       <img src="../assets/images/logo.png" alt="Beautiful Image">
     </div>
     <div class="header-right">
-      <div style="display: flex; flex-direction:  row;">
+      <div style="display: flex;
+      flex-direction: row;
+      position: absolute;
+      left: 40%;">
       <p style="text-align: center; font-size: 25px; font-weight: bold;">Custom Flashcard Generation Using AI</p>
       
       </div>
-      <div>
-        <p style="float: right;"> How it Works ?</p>
+      <div style="margin: 0 auto;
+      width: auto;
+      margin-right: 1%;
+      /* width: 100%; */
+      /* height: 47px; */
+      background-color: rgb(180, 95, 6);;
+      border-radius: 22%;
+      padding: 0.5%;
+      height: 40px;
+      display: flex;
+      flex-direction: row;
+      font-weight: bold;" onclick="redirectToURL('/page5/')">
+      How it Works ?
+        <div>
+          <script>
+            function redirectToURL(url) {
+              window.location.href = url;
+            }
+          </script>
+      </div>
       </div>
     </div>
 </div>
