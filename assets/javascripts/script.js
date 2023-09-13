@@ -37,7 +37,7 @@ function dummyImage(){
 
 function getData() {
     // Define the API endpoint URL
-    const apiUrl = 'https://0c37-128-205-33-18.ngrok-free.app/generate/';
+    const apiUrl = 'https://fd29-128-205-33-18.ngrok-free.app/generate/';
     
     // Get the value from the input field
     const inputValue = document.getElementById('gradiotext').value;
