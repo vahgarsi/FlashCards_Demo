@@ -5906,3 +5906,11 @@ input:focus {
     font-size: 10px;
 
 }
+
+.button-class {
+    background-color: #e69138; color: white; font-size: 2.5em; border-radius: 16px;
+}
+
+.button-class:active {
+    background-color: #be772e !important; color: white !important; font-size: 2.5em !important; border-radius: 16px!important;
+}
