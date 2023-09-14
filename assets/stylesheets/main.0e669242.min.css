@@ -2942,9 +2942,10 @@ html {
     padding: 10px;
     border: none;
     outline: none;
-    font-size: 30px;
+    font-size: 20px;
     color: #333;
     background-color: transparent;
+    
 }
 
 .explanation-div{
