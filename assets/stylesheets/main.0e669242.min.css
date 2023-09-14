@@ -5846,6 +5846,10 @@ input:focus {
     background: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 25px;
+    margin: 0 auto;
+    font-size: 25px;
+    color: blue;
 }
 
 .api-error-overlay {
