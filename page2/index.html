@@ -177,8 +177,43 @@
             
             
             </article> -->
-            <img style="margin-top: 30px;" src="../assets/images/page_2_final_image.png"/>
+            <img style="margin-top: 30px; margin-left: 5%;" src="../assets/images/page_2_image1.png"/>
+            
+            <img onclick="displayPopup()" style="margin-left: -26%; margin-top:8%;" src="../assets/images/page_2_image2.png"/>
             </div>
+            <div class="api-error-overlay" id="overlay">
+              <div style="    padding: 1%;
+              margin: 1px 1px 1px 1px white;
+              border-color: white;">
+              <img style="margin-top: 14%;
+              margin-left: 13%;
+              /* margin-bottom: -30%; */
+              border-color: white;
+              border-radius: 25px;
+              width: 74%;" src="../assets/images/page2_popup_image_without_border.png"/>
+              </div>
+            </div>
+            <div class="api-error-popup-page2" id="popup">
+              <span class="api-error-close-btn-page2 " onclick="closePopup()">×</span>
+              
+          </div>
+            <script>
+              function displayPopup() {
+                  var overlay = document.getElementById('overlay');
+                  var popup = document.getElementById('popup');
+
+                  overlay.style.display = 'block';
+                  popup.style.display = 'block';
+              }
+
+              function closePopup() {
+                  var overlay = document.getElementById('overlay');
+                  var popup = document.getElementById('popup');
+
+                  overlay.style.display = 'none';
+                  popup.style.display = 'none';
+              }
+            </script>
             <!-- <div id="page2" class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
