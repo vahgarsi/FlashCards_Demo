@@ -780,7 +780,7 @@ body {
     margin-top: 2.5rem;
     box-shadow: 2px 2px 25px 2px #e2e2e2;
     border-radius: 45px;
-    padding-bottom: 52%;
+    padding-bottom: 50%;
 }
 .md-ellipsis {
     overflow: hidden;
@@ -5916,7 +5916,7 @@ input:focus {
     position: absolute;
     right: 0;
     height: 50%;
-    margin-top: -37%;
+    margin-top: -36%;
     margin-right: 2%;
     width: 35px;
     height: 57px;
