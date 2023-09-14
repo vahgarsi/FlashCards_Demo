@@ -177,7 +177,7 @@
             
             
             </article> -->
-            <img style="margin-top: 30px; margin-left: 5%;" src="../assets/images/page_2_image1.png"/>
+            <img style="margin-top: 30px; margin-left: 5%;" src="../assets/images/page_2_main_image.png"/>
             
             <img onclick="displayPopup()" style="margin-left: -26%; margin-top:8%;" src="../assets/images/page_2_image2.png"/>
             </div>
@@ -206,6 +206,7 @@
 
                   overlay.style.display = 'block';
                   popup.style.display = 'block';
+                  overlay.style.opacity = 1;
               }
 
               function closePopup() {
@@ -213,6 +214,7 @@
                   var popup = document.getElementById('popup');
 
                   overlay.style.display = 'none';
+                  overlay.style.opacity = 0;
                   popup.style.display = 'none';
               }
             </script>
