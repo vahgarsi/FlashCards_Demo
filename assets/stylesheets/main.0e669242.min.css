@@ -5885,7 +5885,22 @@ input:focus {
     position: absolute;
     right: 0;
     height: 50%;
-    margin-top: -25%;
+    margin-top: -23%;
+    margin-right: 2%;
+    width: 35px;
+    height: 57px;
+    text-align: center;
+    color: #2094f3;
+    line-height: 57px;
+    cursor: pointer;
+    font-size: 75px;
+}
+
+.right-arrow-page-2 {
+    position: absolute;
+    right: 0;
+    height: 50%;
+    margin-top: -22%;
     margin-right: 2%;
     width: 35px;
     height: 57px;
