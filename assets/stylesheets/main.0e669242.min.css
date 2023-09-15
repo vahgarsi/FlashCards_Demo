@@ -2895,7 +2895,7 @@ html {
     box-shadow: 0px 2px 25px 2px #e2e2e2;
     border-radius: 25px;
     font-size: 30px;
-	width: 23%;
+    width: 21%;
 }
 
 .gradio-box-main-2{
@@ -5634,7 +5634,7 @@ input:focus {
 }
 
 .table-heading {
-    width: 50%;
+    width: 39em;
     padding: 0 2%;
     display: flex;
     flex-direction: column;
