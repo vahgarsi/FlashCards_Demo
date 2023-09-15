@@ -509,17 +509,17 @@
                       var Finalitem = ["temp"]
                         
                       if(location === 'initial' && sound.includes('l')) {
-                        Finaltem = initial_s_sound[initial_s_sound_counter]
-                        initial_s_sound_counter += 1
-                        if(initial_s_sound_counter == initial_s_sound.length) {
-                          initial_s_sound_counter = 0
+                        Finaltem = initial_l_sound[initial_l_sound_counter]
+                        initial_l_sound_counter += 1
+                        if(initial_l_sound_counter == initial_l_sound.length) {
+                          initial_l_sound_counter = 0
                         }
                       }
                       else if(location === 'final' && sound.includes('l')) {
-                        Finaltem = final_s_sound[final_s_sound_counter]
-                        final_s_sound_counter += 1
-                        if(final_r_sound_counter == final_s_sound.length) {
-                          final_r_sound_counter = 0
+                        Finaltem = final_l_sound[final_l_sound_counter]
+                        final_l_sound_counter += 1
+                        if(final_l_sound_counter == final_l_sound.length) {
+                          final_l_sound_counter = 0
                         }
                       }
                       else if(location === 'initial' && sound.includes('r')) {
@@ -653,9 +653,9 @@
                       
                       
 
-
-                  }
                     }
+                  }
+                    
                   });
                   document.getElementById("toggle-button").dispatchEvent(new Event('change'));
 
