@@ -339,12 +339,19 @@
                 <p>Please try again</p>
             </div>
               <script>
-                var initial_s_sound = []
-                var initial_l_sound = []
-                var initial_r_sound = []
-                var final_s_sound = []
-                var final_l_sound = []
-                var final_r_sound = []
+                var initial_s_sound_counter = 0
+                var initial_l_sound_counter = 0
+                var initial_r_sound_counter = 0
+                var final_s_sound_counter = 0
+                var final_l_sound_counter = 0
+                var final_r_sound_counter = 0
+                var initial_s_sound = filterDataByLocationAndSound(data, 'initial', '/s/');
+                var initial_l_sound = filterDataByLocationAndSound(data, 'initial', '/l/');
+                var initial_r_sound = filterDataByLocationAndSound(data, 'initial', '/r/');
+                var final_s_sound = filterDataByLocationAndSound(data, 'final', '/s/');
+                var final_l_sound = filterDataByLocationAndSound(data, 'final', '/l/');
+                var final_r_sound = filterDataByLocationAndSound(data, 'final', '/r/');
+
                 function displayPopup() {
                   var overlay = document.getElementById('overlay');
                   var popup = document.getElementById('popup');
@@ -465,23 +472,23 @@
                                             firstcard.style.display = 'block'
                                             secondcard.style.display = 'block'
                                             // console.log('img 1 src is ' + Finaltem.pair.item1.b64_image)
-                                            firstcard.src = 'data:image/png;base64,' + Finaltem.pair.item1.b64_image;
-                                            secondcard.src = 'data:image/png;base64,' + Finaltem.pair.item2.b64_image;
+                                            firstcard.src = 'data:image/png;base64,' + data.pair.item1.b64_image;
+                                            secondcard.src = 'data:image/png;base64,' + data.pair.item2.b64_image;
                                             // table.style.display = 'inline'
-                                            firstcardtitle.innerText = Finaltem.pair.item1.word
-                                            secondcardtitle.innerText = Finaltem.pair.item2.word
-                                            card1name.innerText = Finaltem.pair.item1.word
-                                            card2name.innerText = Finaltem.pair.item2.word
-                                            card1phonetic.innerText = Finaltem.pair.item1.ipa
-                                            card2phonetic.innerText = Finaltem.pair.item2.ipa
-                                            card1place.innerText = Finaltem.pair.item1.place
-                                            card2place.innerText = Finaltem.pair.item2.place
-                                            card1voice.innerText = Finaltem.pair.item1.voicing
-                                            card2voice.innerText = Finaltem.pair.item2.voicing
-                                            card1manner.innerText = Finaltem.pair.item1.manner
-                                            card2manner.innerText = Finaltem.pair.item2.manner
-                                            card1phoneme.innerText = '/' + Finaltem.pair.item1.sound + '/'
-                                            card2phoneme.innerText = '/' + Finaltem.pair.item2.sound + '/'
+                                            firstcardtitle.innerText = data.pair.item1.word
+                                            secondcardtitle.innerText = data.pair.item2.word
+                                            card1name.innerText = data.pair.item1.word
+                                            card2name.innerText = data.pair.item2.word
+                                            card1phonetic.innerText = data.pair.item1.ipa
+                                            card2phonetic.innerText = data.pair.item2.ipa
+                                            card1place.innerText = data.pair.item1.place
+                                            card2place.innerText = data.pair.item2.place
+                                            card1voice.innerText = data.pair.item1.voicing
+                                            card2voice.innerText = data.pair.item2.voicing
+                                            card1manner.innerText = data.pair.item1.manner
+                                            card2manner.innerText = data.pair.item2.manner
+                                            card1phoneme.innerText = '/' + data.pair.item1.sound + '/'
+                                            card2phoneme.innerText = '/' + data.pair.item2.sound + '/'
                                             // explanationdiv.style.display = 'block'
                                             // explanation.innerText = Finaltem.explanation
                                             gradioboxmain.style.height = 'auto'
@@ -498,13 +505,59 @@
                       console.log('location is ' + location)
                       console.log('sound is ' + sound)
                       
+                      // check input
+                      var Finalitem = ["temp"]
+                        
+                      if(location === 'initial' && sound.includes('l')) {
+                        Finaltem = initial_s_sound[initial_s_sound_counter]
+                        initial_s_sound_counter += 1
+                        if(initial_s_sound_counter == initial_s_sound.length) {
+                          initial_s_sound_counter = 0
+                        }
+                      }
+                      else if(location === 'final' && sound.includes('l')) {
+                        Finaltem = final_s_sound[final_s_sound_counter]
+                        final_s_sound_counter += 1
+                        if(final_r_sound_counter == final_s_sound.length) {
+                          final_r_sound_counter = 0
+                        }
+                      }
+                      else if(location === 'initial' && sound.includes('r')) {
+                        Finaltem = initial_r_sound[initial_r_sound_counter]
+                        initial_r_sound_counter += 1
+                        if(initial_r_sound_counter == initial_r_sound.length) {
+                          initial_r_sound_counter = 0
+                        }
+                      }
+                      else if(location === 'final' && sound.includes('r')) {
+                        Finaltem = final_r_sound[final_r_sound_counter]
+                        final_r_sound_counter += 1
+                        if(final_r_sound_counter == final_r_sound.length) {
+                          final_r_sound_counter = 0
+                        }
+                      }
+                      else if(location === 'initial' && sound.includes('s')) {
+                        Finaltem = initial_s_sound[initial_s_sound_counter]
+                        initial_s_sound_counter += 1
+                        if(initial_s_sound_counter == initial_s_sound.length) {
+                          initial_s_sound_counter = 0
+                        }
+                      }
+                      else if(location === 'final' && sound.includes('s')) {
+                        Finaltem = final_s_sound[final_s_sound_counter]
+                        final_s_sound_counter += 1
+                        if(final_s_sound_counter == final_s_sound.length) {
+                          final_s_sound_counter = 0
+                        }
+                      }
+
                       
-                      const randomItem = filterDataByLocationAndSound(data, location, sound);
-                      const Finaltem = getRandomIndex(randomItem);
+                      //const randomItem = filterDataByLocationAndSound(data, location, sound);
+                      //const Finaltem = getRandomIndex(randomItem);
 
-                      console.log('len filter data is ' + (Finaltem.length))
+                      //console.log('len filter data is ' + (Finaltem.length))
 
-                      console.log('data 1 is ' + (Finaltem.pair.item1))
+                      //console.log('data 1 is ' + (Finaltem.pair.item1))
                       
                       const firstcard = document.getElementById('first-card');
                       const secondcard = document.getElementById('second-card');
