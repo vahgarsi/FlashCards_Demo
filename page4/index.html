@@ -377,15 +377,15 @@
 
                 document.getElementById("toggle-button").addEventListener("change", function() {
                     if(this.checked) {
-                      console.log("Checkbox is checked");
+                      console.log("API is checked");
                       // Do something when the checkbox is checked
                       document.getElementById("gradiotext").removeAttribute("readonly");
                       document.getElementById("gradiotext").value = '';
                       
                       function getData() {
                               // Define the API endpoint URL
-                              const apiUrl = 'https://54af-2620-cc-8000-e0d-1623-f2ff-fecd-3fb0.ngrok.io/generate/';
-                              
+                              // const apiUrl = 'https://500b-2620-cc-8000-e0d-1623-f2ff-fecd-3fb0.ngrok-free.app/generate/';
+                              const apiUrl = 'https://cors-anywhere.herokuapp.com/https://500b-2620-cc-8000-e0d-1623-f2ff-fecd-3fb0.ngrok-free.app/generate/';
                               // Get the value from the input field
                               const inputValue = document.getElementById('gradiotext').value;
 
@@ -403,6 +403,7 @@
                                   "Access-Control-Request-Method": "*",
                                   "Origin": "http://localhost:8000/",
                                   "ngrok-skip-browser-warning": "69420",
+                                  "mode": "no-cors"
 
                                   // Add any additional headers if needed
                               });
@@ -411,6 +412,7 @@
                               const options = {
                                   method: 'GET',
                                   headers: headers,
+                                  
                               };
 
                               
@@ -432,78 +434,89 @@
                                       console.error('Error:', error);
                                   });
                           }
-                          document.getElementById('getData').addEventListener('click', getData);
+                          if (this.checked) {
+                            console.log("API inside is checked")
+                            const getDataButton = document.getElementById('getData');
+                            if (getDataButton && getDataButton.addEventListener) {
+                              getDataButton.addEventListener('click', getData);
+                            }
+
+                          // document.getElementById('getData').addEventListener('click', getData);
+                          }
                           function displayData(data) {
-                                            const contrast = document.getElementById('dropdown1').value;
-                                            const location = document.getElementById('dropdown2').value;
-                                            const sound = document.getElementById('dropdown3').value;
-                                            console.log('location is ' + location)
-                                            console.log('sound is ' + sound)
-                                            const randomItem = filterDataByLocationAndSound(data, location, sound);
-                                            const Finaltem = getRandomIndex(randomItem);
+                          const contrast = document.getElementById('dropdown1').value;
+                          const location = document.getElementById('dropdown2').value;
+                          const sound = document.getElementById('dropdown3').value;
+                          // console.log('location is ' + location)
+                          // console.log('sound is ' + sound)
+                          // const randomItem = filterDataByLocationAndSound(data, location, sound);
+                          // const Finaltem = getRandomIndex(randomItem);
 
-                                            console.log('len filter data is ' + (Finaltem.length))
+                          // console.log('len filter data is ' + (Finaltem.length))
 
-                                            console.log('data 1 is ' + (Finaltem.pair.item1))
-                                            
-                                            const firstcard = document.getElementById('first-card');
-                                            const secondcard = document.getElementById('second-card');
-                                            const firstcardtitle = document.getElementById('flashcard-first-title');
-                                            const secondcardtitle = document.getElementById('flashcard-second-title');
-                                            const table = document.getElementById("card-details-table");
-                                            const card1name = document.getElementById("placeholder-card-1-name");
-                                            const card2name = document.getElementById("placeholder-card-2-name");
-                                            const card1phonetic = document.getElementById("placeholder-card-1-ipa");
-                                            const card2phonetic = document.getElementById("placeholder-card-2-ipa");
-                                            const card1place = document.getElementById("placeholder-card-1-place");
-                                            const card2place = document.getElementById("placeholder-card-2-place");
-                                            const card1voice = document.getElementById("placeholder-card-1-voicing");
-                                            const card2voice = document.getElementById("placeholder-card-2-voicing");
-                                            const card1manner = document.getElementById("placeholder-card-1-manner");
-                                            const card2manner = document.getElementById("placeholder-card-2-manner");
-                                            const cardplaceheader = document.getElementById("place-header");
-                                            const cardvoiceheader = document.getElementById("voice-header");
-                                            const cardmannerheader = document.getElementById("manner-header");
-                                            const explanation = document.getElementById("explanation-text");
-                                            const explanationdiv = document.getElementById("explanation-div");
-                                            const gradioboxmain = document.getElementById("img-template");
-                                            const card1phoneme = document.getElementById("placeholder-card-1-phoneme");
-                                            const card2phoneme = document.getElementById("placeholder-card-2-phoneme");
-                                            firstcard.style.display = 'block'
-                                            secondcard.style.display = 'block'
-                                            // console.log('img 1 src is ' + Finaltem.pair.item1.b64_image)
-                                            firstcard.src = 'data:image/png;base64,' + data.pair.item1.b64_image;
-                                            secondcard.src = 'data:image/png;base64,' + data.pair.item2.b64_image;
-                                            // table.style.display = 'inline'
-                                            firstcardtitle.innerText = data.pair.item1.word
-                                            secondcardtitle.innerText = data.pair.item2.word
-                                            card1name.innerText = data.pair.item1.word
-                                            card2name.innerText = data.pair.item2.word
-                                            card1phonetic.innerText = data.pair.item1.ipa
-                                            card2phonetic.innerText = data.pair.item2.ipa
-                                            card1place.innerText = data.pair.item1.place
-                                            card2place.innerText = data.pair.item2.place
-                                            card1voice.innerText = data.pair.item1.voicing
-                                            card2voice.innerText = data.pair.item2.voicing
-                                            card1manner.innerText = data.pair.item1.manner
-                                            card2manner.innerText = data.pair.item2.manner
-                                            card1phoneme.innerText = '/' + data.pair.item1.sound + '/'
-                                            card2phoneme.innerText = '/' + data.pair.item2.sound + '/'
-                                            // explanationdiv.style.display = 'block'
-                                            // explanation.innerText = Finaltem.explanation
-                                            gradioboxmain.style.height = 'auto'
+                          // console.log('data 1 is ' + (Finaltem.pair.item1))
+                          
+                          const firstcard = document.getElementById('first-card');
+                          const secondcard = document.getElementById('second-card');
+                          const firstcardtitle = document.getElementById('flashcard-first-title');
+                          const secondcardtitle = document.getElementById('flashcard-second-title');
+                          const table = document.getElementById("card-details-table");
+                          const card1name = document.getElementById("placeholder-card-1-name");
+                          const card2name = document.getElementById("placeholder-card-2-name");
+                          const card1phonetic = document.getElementById("placeholder-card-1-ipa");
+                          const card2phonetic = document.getElementById("placeholder-card-2-ipa");
+                          const card1place = document.getElementById("placeholder-card-1-place");
+                          const card2place = document.getElementById("placeholder-card-2-place");
+                          const card1voice = document.getElementById("placeholder-card-1-voicing");
+                          const card2voice = document.getElementById("placeholder-card-2-voicing");
+                          const card1manner = document.getElementById("placeholder-card-1-manner");
+                          const card2manner = document.getElementById("placeholder-card-2-manner");
+                          const cardplaceheader = document.getElementById("place-header");
+                          const cardvoiceheader = document.getElementById("voice-header");
+                          const cardmannerheader = document.getElementById("manner-header");
+                          const explanation = document.getElementById("explanation-text");
+                          const explanationdiv = document.getElementById("explanation-div");
+                          const gradioboxmain = document.getElementById("img-template");
+                          const card1phoneme = document.getElementById("placeholder-card-1-phoneme");
+                          const card2phoneme = document.getElementById("placeholder-card-2-phoneme");
+                          firstcard.style.display = 'block'
+                          secondcard.style.display = 'block'
+                          // console.log('img 1 src is ' + Finaltem.pair.item1.b64_image)
+                          firstcard.src = 'data:image/png;base64,' + data.pair.item1.b64_image;
+                          secondcard.src = 'data:image/png;base64,' + data.pair.item2.b64_image;
+                          // table.style.display = 'inline'
+                          firstcardtitle.innerText = data.pair.item1.word
+                          secondcardtitle.innerText = data.pair.item2.word
+                          card1name.innerText = data.pair.item1.word
+                          card2name.innerText = data.pair.item2.word
+                          card1phonetic.innerText = data.pair.item1.ipa
+                          card2phonetic.innerText = data.pair.item2.ipa
+                          card1place.innerText = data.pair.item1.place
+                          card2place.innerText = data.pair.item2.place
+                          card1voice.innerText = data.pair.item1.voicing
+                          card2voice.innerText = data.pair.item2.voicing
+                          card1manner.innerText = data.pair.item1.manner
+                          card2manner.innerText = data.pair.item2.manner
+                          card1phoneme.innerText = '/' + data.pair.item1.sound + '/'
+                          card2phoneme.innerText = '/' + data.pair.item2.sound + '/'
+                          // explanationdiv.style.display = 'block'
+                          // explanation.innerText = Finaltem.explanation
+                          gradioboxmain.style.height = 'auto'
                                         }
                     } else {
-                      console.log("Checkbox is unchecked");
+                      console.log("API is unchecked");
                       // Do something when the checkbox is unchecked
                       document.getElementById("gradiotext").setAttribute("readonly", "readonly");
+                      if(!this.checked) {
+                        console.log("API inside is unchecked")
                       document.getElementById('getData').addEventListener('click', getCannedresponseNew);
+                      }
                       function getCannedresponseNew() {
                       const contrast = document.getElementById('dropdown1').value;
                       const location = document.getElementById('dropdown2').value;
                       const sound = document.getElementById('dropdown3').value;
-                      console.log('location is ' + location)
-                      console.log('sound is ' + sound)
+                      // console.log('location is ' + location)
+                      // console.log('sound is ' + sound)
                       
                       // check input
                       var Finalitem = ["temp"]
