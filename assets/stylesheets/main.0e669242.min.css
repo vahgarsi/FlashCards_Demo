@@ -2881,6 +2881,17 @@ html {
     /* width: 90%; */
 }
 
+.gradio-box-2{
+    background-color: #ededed;
+    margin: 0% 2%;
+    border-radius: 20px;
+    font-size: 30px;
+    padding: 1%;
+    display: flex;
+    flex-direction: row;
+    /* width: 90%; */
+}
+
 .gradio-box-main{
     /* background-color: #ededed;
     border-radius: 25px; */
@@ -2945,6 +2956,17 @@ html {
 }
 
 .text-input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    color: #333;
+    background-color: transparent;
+    
+}
+
+.text-input-2 {
     width: 100%;
     padding: 10px;
     border: none;
@@ -5862,9 +5884,9 @@ input:focus {
 .api-error-popup-page2 {
     display: none;
     position: fixed;
-    top: 20%;
-    left: 85%;
-    transform: translate(-50%, -50%);
+    /* top: 20%; */
+    /* left: 85%;
+    transform: translate(-50%, -50%); */
     background: lightyellow;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -5872,7 +5894,19 @@ input:focus {
     margin: 0 auto;
     font-size: 25px;
     color: black;
+    width: 0;
+    float: right;
 }
+
+/* Add your custom styles here */
+  .inactive {
+    background-color: #ccc; /* Change color to inactive */
+    cursor: not-allowed;
+  }
+
+  .loading::after {
+    content: "Loading..."; /* Change text to "Loading..." */
+  }
 
 .api-error-overlay {
     display: none;
