@@ -98,32 +98,12 @@
       Custom Flashcard Generation Using AI
       
       </div>
-      <!-- <div style="margin: 0 auto;
-      width: auto;
-      margin-right: 1%;
-      /* width: 100%; */
-      /* height: 47px; */
-      background-color: rgb(180, 95, 6);;
-      border-radius: 22%;
-      padding: 0.5%;
-      height: 40px;
-      display: flex;
-      flex-direction: row;
-      font-weight: bold;" onclick="redirectToURL('/FlashCards_Demo/page5/')">
-      How it Works ?
-        <div>
-          <script>
-            function redirectToURL(url) {
-              window.location.href = url;
-            }
-          </script>
-      </div>
-      </div> -->
+     
     </div>
 </div>
     
     <div class="md-container" data-md-component="container">
-      <a class="left-arrow" href="/FlashCards_Demo/page3/">
+      <a class="left-arrow" style="margin-top: 24%;" href="/FlashCards_Demo/page3/">
         &lt;
        </a>
       
@@ -166,7 +146,7 @@
               <article class="md-content__inner md-typeset">
                 <!-- <a id="prevPage" href="/FlashCards_Demo/page3/">Previous</a>
                 <a id="nextPage" style="float: right;" href="/FlashCards_Demo/page5/">Next</a> -->
-                <div style="display: flex; flex-direction: row; justify-content: space-between; margin: 2% 10%;">
+                <div id="selectiondiv" style="display: flex; flex-direction: row; justify-content: space-between; margin: 2% 10%;">
                   <div>
                   <span style="font-weight: bold; font-size: 20px;">Contrast</span>
                   <select id="dropdown1" onchange="updateInput()">
@@ -323,10 +303,11 @@
                   <div id="flashcard-second-title" class="flashcard-title">dog</div>
                 </div>
               </div>
-              <div class="explanation-div" id="explanation-div">
+              
+              <!-- <div style="display: none;" class="explanation-div" id="explanation-div">
                 <h1 id="explanation-text"></h1>
-              </div>
-              <div style="float: left; display: flex; flex-direction: row; justify-content: space-between; margin-left: 2%; margin-top: 0%;" class="switch-div">
+              </div> -->
+              <div style="float: left; display: none; flex-direction: row; justify-content: space-between; margin-left: 2%; margin-top: 0%;" class="switch-div">
                 <label class="switch" style="margin:0px;">
                   <input id="toggle-button" type="checkbox" class="switch-input">
                       <span class="switch-label" data-on="On" data-off="Off"></span>
@@ -374,181 +355,9 @@
                 
     return data.filter(item => item.location === inputLocation && item.sound === inputSound);
 }
-                var istoggle = false
-                document.getElementById("toggle-button").addEventListener("change", function() {
-                    if(this.checked) {
-                      istoggle = true
-                      console.log("API is checked");
-                      // Do something when the checkbox is checked
-                      document.getElementById("gradiotext").removeAttribute("readonly");
-                      document.getElementById("gradiotext").value = '';
-                      
-                      function getData() {
-                              // Define the API endpoint URL
-                              // const apiUrl = 'https://500b-2620-cc-8000-e0d-1623-f2ff-fecd-3fb0.ngrok-free.app/generate/';
-                              // const apiUrl = 'https://500b-2620-cc-8000-e0d-1623-f2ff-fecd-3fb0.ngrok-free.app/generate/';
-                              const apiUrl = 'https://corsproxy.io/?' + encodeURIComponent('https://500b-2620-cc-8000-e0d-1623-f2ff-fecd-3fb0.ngrok-free.app/generate/');
-                              // Get the value from the input field
-                              const inputValue = document.getElementById('gradiotext').value;
-
-                              // Add the input value as a parameter in the URL
-                              const apiUrlWithParam = `${apiUrl}${inputValue}`;
-                              console.log('apiwithurl is ', apiUrlWithParam)
-
-                              
-                              // let headers = new Headers();
-
-                              // headers.append('Content-Type', 'application/json');
-                              // headers.append('Accept', 'application/json');
-                              // headers.append('Origin', 'http://localhost:8000/page4');
-
-                              // var req = fetch(base_app_url + '/page4/', {
-                              //   method: 'GET',
-                              //   mode: 'no-cors',
-                              //   credentials: 'include',
-                              //   headers: headers
-                              // });
-                              
-                              // req.then(function(response) {
-                              //     if (!response.ok) {
-                              //         throw new Error('Network response was not ok');
-                              //     }
-                              //     return response.text(); // This returns a promise that resolves with the response text
-                              // }).then(function(responseText) {
-                              //     // Call your function with the response text
-
-                              //     displayData(responseText);
-                              // }).catch(function(error) {
-                              //     console.error('Error:', error);
-                              // });
-                              
-                              // Define headers for the request
-                              const headers = new Headers({
-                                  'Accept': 'application/json', // Specify that you expect JSON in the response
-                                  'Content-Type': 'application/json',                                
-                                  "Access-Control-Allow-Origin": "*",
-                                  // "Access-Control-Allow-Methods":"DELETE, POST, GET, OPTIONS",
-                                  // "Access-Control-Allow-Headers":"Content-Type, Authorization, X-Requested-With",
-                                  // "Access-Control-Request-Method": "*",
-                                  // "Origin": window.URL,
-                                  "Origin": window.location.origin,
-                                  "ngrok-skip-browser-warning": "69420",
-                                  // "Access-Control-Allow-Credentials" : true
-                                  // "mode": "no-cors"
-
-                                  // Add any additional headers if needed
-                              });
-
-                              // Define options for the fetch request
-                              const options = {
-                                  method: 'GET',
-                                  headers: headers,
-                                  // credentials: 'include',
-                                  // mode: 'no-cors'
-                              };
-                              
-
-                              
-                              // Make a GET request using fetch
-                              fetch(apiUrlWithParam, options)
-                                  .then(response => {
-                                    
-                                      if (!response.ok) {
-                                        displayPopup();
-                                        console.log(response)
-                                        console.log(response.ok)
-                                          throw new Error('Network response was not ok');
-                                      }
-                                      return response.json(); // Parse the response body as JSON
-                                  })
-                                  .then(data => {
-                                    console.log(data)
-                                      // Handle the data
-                                      displayData(data);
-                                  })
-                                  .catch(error => {
-                                      // Handle errors
-                                      console.error('Error:', error);
-                                  });
-                          }
-                         
-                          const getDataButton = document.getElementById('getData');
-
-                            if (getDataButton && getDataButton.addEventListener) {
-                              getDataButton.addEventListener('click', getData);
-                            }
-                          
-                          // // document.getElementById('getData').addEventListener('click', getData);
-                          // }
-                          function displayData(data) {
-                          const contrast = document.getElementById('dropdown1').value;
-                          const location = document.getElementById('dropdown2').value;
-                          const sound = document.getElementById('dropdown3').value;
-                          // console.log('location is ' + location)
-                          // console.log('sound is ' + sound)
-                          // const randomItem = filterDataByLocationAndSound(data, location, sound);
-                          // const Finaltem = getRandomIndex(randomItem);
-
-                          // console.log('len filter data is ' + (Finaltem.length))
-
-                          // console.log('data 1 is ' + (Finaltem.pair.item1))
-                          
-                          const firstcard = document.getElementById('first-card');
-                          const secondcard = document.getElementById('second-card');
-                          const firstcardtitle = document.getElementById('flashcard-first-title');
-                          const secondcardtitle = document.getElementById('flashcard-second-title');
-                          const table = document.getElementById("card-details-table");
-                          const card1name = document.getElementById("placeholder-card-1-name");
-                          const card2name = document.getElementById("placeholder-card-2-name");
-                          const card1phonetic = document.getElementById("placeholder-card-1-ipa");
-                          const card2phonetic = document.getElementById("placeholder-card-2-ipa");
-                          const card1place = document.getElementById("placeholder-card-1-place");
-                          const card2place = document.getElementById("placeholder-card-2-place");
-                          const card1voice = document.getElementById("placeholder-card-1-voicing");
-                          const card2voice = document.getElementById("placeholder-card-2-voicing");
-                          const card1manner = document.getElementById("placeholder-card-1-manner");
-                          const card2manner = document.getElementById("placeholder-card-2-manner");
-                          const cardplaceheader = document.getElementById("place-header");
-                          const cardvoiceheader = document.getElementById("voice-header");
-                          const cardmannerheader = document.getElementById("manner-header");
-                          const explanation = document.getElementById("explanation-text");
-                          const explanationdiv = document.getElementById("explanation-div");
-                          const gradioboxmain = document.getElementById("img-template");
-                          const card1phoneme = document.getElementById("placeholder-card-1-phoneme");
-                          const card2phoneme = document.getElementById("placeholder-card-2-phoneme");
-                          firstcard.style.display = 'block'
-                          secondcard.style.display = 'block'
-                          // console.log('img 1 src is ' + Finaltem.pair.item1.b64_image)
-                          firstcard.src = 'data:image/png;base64,' + data.pair.item1.b64_image;
-                          secondcard.src = 'data:image/png;base64,' + data.pair.item2.b64_image;
-                          // table.style.display = 'inline'
-                          firstcardtitle.innerText = data.pair.item1.word
-                          secondcardtitle.innerText = data.pair.item2.word
-                          card1name.innerText = data.pair.item1.word
-                          card2name.innerText = data.pair.item2.word
-                          card1phonetic.innerText = data.pair.item1.ipa
-                          card2phonetic.innerText = data.pair.item2.ipa
-                          card1place.innerText = data.pair.item1.place
-                          card2place.innerText = data.pair.item2.place
-                          card1voice.innerText = data.pair.item1.voicing
-                          card2voice.innerText = data.pair.item2.voicing
-                          card1manner.innerText = data.pair.item1.manner
-                          card2manner.innerText = data.pair.item2.manner
-                          card1phoneme.innerText = '/' + data.pair.item1.sound + '/'
-                          card2phoneme.innerText = '/' + data.pair.item2.sound + '/'
-                          // explanationdiv.style.display = 'block'
-                          // explanation.innerText = Finaltem.explanation
-                          gradioboxmain.style.height = 'auto'
-                                        }
-                    } else {
-                      istoggle= false
-                      console.log("API is unchecked");
-                      // Do something when the checkbox is unchecked
                       document.getElementById("gradiotext").setAttribute("readonly", "readonly");
-                      if(istoggle===false) {
-                        console.log("API inside is unchecked")
                       document.getElementById('getData').addEventListener('click', getCannedresponseNew);
-                      }
+                      
                       function getCannedresponseNew() {
                       const contrast = document.getElementById('dropdown1').value;
                       const location = document.getElementById('dropdown2').value;
@@ -630,7 +439,7 @@
                       const cardplaceheader = document.getElementById("place-header");
                       const cardvoiceheader = document.getElementById("voice-header");
                       const cardmannerheader = document.getElementById("manner-header");
-                      const explanation = document.getElementById("explanation-text");
+                      const explanation = document.getElementById("explanation-div");
                       const explanationdiv = document.getElementById("explanation-div");
                       const gradioboxmain = document.getElementById("img-template");
                       const placedotleft = document.getElementById("place-dot-left")
@@ -660,7 +469,7 @@
                       card1phoneme.innerText = '/' + Finaltem.pair.item1.sound + '/'
                       card2phoneme.innerText = '/' + Finaltem.pair.item2.sound + '/'
                       // explanationdiv.style.display = 'block'
-                      // explanation.innerText = Finaltem.explanation
+                      explanation.innerText = Finaltem.explanation
                       gradioboxmain.style.height = 'auto'
 
                       if (Finaltem.pair.item1.voicing !== Finaltem.pair.item2.voicing ){
@@ -699,28 +508,69 @@
                       // item2Image.src = '../images/flashcard2.png';
                       // Set the background image of the image container
                       //imageContainer.style.backgroundImage = `url(data:image/jpeg;base64,${base64Image})`;
-
-                      
-                      
-                      
-
-                    }
                   }
+                  
                     
-                  });
-                  document.getElementById("toggle-button").dispatchEvent(new Event('change'));
-
+                  
               </script>
               </div>
                   </div>
                   
               </div>
               
+              
 </article>
 <a class="right-arrow-page-4" href="/FlashCards_Demo/page5/">
   &gt;
  </a>
+ 
 </div>
+<div  style="margin-left: 78%; width: 15%;">
+  <img onclick="explationationnpopup()" src="../assets/images/explanation-pic.png"/>
+</div>
+<div class="api-error-overlay" id="explanation-overlay">
+  
+  <div style="   margin-top: 47%;
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: #fff2cc;
+  padding: 1%;
+  margin: 1px 1px 1px 1px white;
+  border-color: white;
+  box-shadow: 0px 0px 0px 10px white inset;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  ">
+  <div class="api-error-popup-page2" id="explanation-popup">
+    <span class="api-error-close-btn-page2 " onclick="closeexplanationPopup()">×</span>
+    
+  </div>
+  <div style="font-size: 22px;margin: 0 auto; padding: 4%;" id="explanation-div" >These words have maximally opposing initial sounds because the manner of articulation for /l/ is liquid, and for /d/, it is a stop.</div>
+  </div>
+</div>
+
+<script>
+  function explationationnpopup() {
+      var overlay = document.getElementById('explanation-overlay');
+      var popup = document.getElementById('explanation-popup');
+
+      overlay.style.display = 'block';
+      popup.style.display = 'block';
+      overlay.style.opacity = 1;
+  }
+
+  function closeexplanationPopup() {
+      var overlay = document.getElementById('explanation-overlay');
+      var popup = document.getElementById('explanation-popup');
+
+      overlay.style.display = 'none';
+      overlay.style.opacity = 0;
+      popup.style.display = 'none';
+  }
+</script>
+
             <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
           </body>
         </div>
