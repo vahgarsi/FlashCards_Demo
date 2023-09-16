@@ -374,9 +374,10 @@
                 
     return data.filter(item => item.location === inputLocation && item.sound === inputSound);
 }
-
+                var istoggle = false
                 document.getElementById("toggle-button").addEventListener("change", function() {
                     if(this.checked) {
+                      istoggle = true
                       console.log("API is checked");
                       // Do something when the checkbox is checked
                       document.getElementById("gradiotext").removeAttribute("readonly");
@@ -385,7 +386,8 @@
                       function getData() {
                               // Define the API endpoint URL
                               // const apiUrl = 'https://500b-2620-cc-8000-e0d-1623-f2ff-fecd-3fb0.ngrok-free.app/generate/';
-                              const apiUrl = 'https://cors-anywhere.herokuapp.com/https://500b-2620-cc-8000-e0d-1623-f2ff-fecd-3fb0.ngrok-free.app/generate/';
+                              // const apiUrl = 'https://500b-2620-cc-8000-e0d-1623-f2ff-fecd-3fb0.ngrok-free.app/generate/';
+                              const apiUrl = 'https://corsproxy.io/?' + encodeURIComponent('https://500b-2620-cc-8000-e0d-1623-f2ff-fecd-3fb0.ngrok-free.app/generate/');
                               // Get the value from the input field
                               const inputValue = document.getElementById('gradiotext').value;
 
@@ -393,17 +395,46 @@
                               const apiUrlWithParam = `${apiUrl}${inputValue}`;
                               console.log('apiwithurl is ', apiUrlWithParam)
 
+                              
+                              // let headers = new Headers();
+
+                              // headers.append('Content-Type', 'application/json');
+                              // headers.append('Accept', 'application/json');
+                              // headers.append('Origin', 'http://localhost:8000/page4');
+
+                              // var req = fetch(base_app_url + '/page4/', {
+                              //   method: 'GET',
+                              //   mode: 'no-cors',
+                              //   credentials: 'include',
+                              //   headers: headers
+                              // });
+                              
+                              // req.then(function(response) {
+                              //     if (!response.ok) {
+                              //         throw new Error('Network response was not ok');
+                              //     }
+                              //     return response.text(); // This returns a promise that resolves with the response text
+                              // }).then(function(responseText) {
+                              //     // Call your function with the response text
+
+                              //     displayData(responseText);
+                              // }).catch(function(error) {
+                              //     console.error('Error:', error);
+                              // });
+                              
                               // Define headers for the request
                               const headers = new Headers({
-                                  // 'Accept': 'application/json', // Specify that you expect JSON in the response
-                                  // 'Content-Type': 'application/json', // Specify the content type of the request (if applicable)
-                                  // "Access-Control-Allow-Origin": "*",
+                                  'Accept': 'application/json', // Specify that you expect JSON in the response
+                                  'Content-Type': 'application/json',                                
+                                  "Access-Control-Allow-Origin": "*",
                                   // "Access-Control-Allow-Methods":"DELETE, POST, GET, OPTIONS",
                                   // "Access-Control-Allow-Headers":"Content-Type, Authorization, X-Requested-With",
-                                  "Access-Control-Request-Method": "*",
-                                  "Origin": "http://localhost:8000/",
+                                  // "Access-Control-Request-Method": "*",
+                                  // "Origin": window.URL,
+                                  "Origin": window.location.origin,
                                   "ngrok-skip-browser-warning": "69420",
-                                  "mode": "no-cors"
+                                  // "Access-Control-Allow-Credentials" : true
+                                  // "mode": "no-cors"
 
                                   // Add any additional headers if needed
                               });
@@ -412,20 +443,26 @@
                               const options = {
                                   method: 'GET',
                                   headers: headers,
-                                  
+                                  // credentials: 'include',
+                                  // mode: 'no-cors'
                               };
+                              
 
                               
                               // Make a GET request using fetch
                               fetch(apiUrlWithParam, options)
                                   .then(response => {
+                                    
                                       if (!response.ok) {
                                         displayPopup();
+                                        console.log(response)
+                                        console.log(response.ok)
                                           throw new Error('Network response was not ok');
                                       }
                                       return response.json(); // Parse the response body as JSON
                                   })
                                   .then(data => {
+                                    console.log(data)
                                       // Handle the data
                                       displayData(data);
                                   })
@@ -434,15 +471,15 @@
                                       console.error('Error:', error);
                                   });
                           }
-                          if (this.checked) {
-                            console.log("API inside is checked")
-                            const getDataButton = document.getElementById('getData');
+                         
+                          const getDataButton = document.getElementById('getData');
+
                             if (getDataButton && getDataButton.addEventListener) {
                               getDataButton.addEventListener('click', getData);
                             }
-
-                          // document.getElementById('getData').addEventListener('click', getData);
-                          }
+                          
+                          // // document.getElementById('getData').addEventListener('click', getData);
+                          // }
                           function displayData(data) {
                           const contrast = document.getElementById('dropdown1').value;
                           const location = document.getElementById('dropdown2').value;
@@ -504,10 +541,11 @@
                           gradioboxmain.style.height = 'auto'
                                         }
                     } else {
+                      istoggle= false
                       console.log("API is unchecked");
                       // Do something when the checkbox is unchecked
                       document.getElementById("gradiotext").setAttribute("readonly", "readonly");
-                      if(!this.checked) {
+                      if(istoggle===false) {
                         console.log("API inside is unchecked")
                       document.getElementById('getData').addEventListener('click', getCannedresponseNew);
                       }
