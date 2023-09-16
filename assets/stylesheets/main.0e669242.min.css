@@ -5898,6 +5898,24 @@ input:focus {
     float: right;
 }
 
+.api-error-popup-page2-old {
+    display: none;
+    position: absolute;
+    /* top: 20%; */
+    left: 0;
+    right: 0;
+    background: lightyellow;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 25px;
+    margin: 0 auto;
+    font-size: 25px;
+    color: black;
+    width: 0;
+    margin-left: 84%;
+    margin-top: -44%;
+}
+
 /* Add your custom styles here */
   .inactive {
     background-color: #ccc; /* Change color to inactive */
